@@ -16,12 +16,12 @@ export function changeStorage(switchBtnText) {
   containerBtnChange.style.marginBottom = '50px';
   containerBtnChange.style.marginTop = '20px';
 
-  containerBtnChange.append(btnChange);
+  // containerBtnChange.append(btnChange);
   nav.before(containerBtnChange);
 
   btnChange.addEventListener('click', () => {
     switchBtnText(btnChange);
   })
 
-  
+
 }

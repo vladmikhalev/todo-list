@@ -1,10 +1,6 @@
 // Получить все дела
 export function getTodoList(owner) {
 
-  // localStorage.removeItem(owner)
-  // console.log(localStorage)
-  // console.log(JSON.parse(localStorage.getItem(owner)))
-  // console.log(localStorage.getItem(owner) !== null )
   if (localStorage.getItem(owner) !== null) {
     return JSON.parse(localStorage.getItem(owner));
   } else {
@@ -29,17 +25,6 @@ export function createTodoItem({ owner, nameItem }) {
   localStorage.setItem(owner, JSON.stringify(localArr));
 
 
-  //   let getArr = JSON.parse(localStorage.getItem(owner));
-  //   let localObj;
-  //   let newArr = localArr.map(e => {
-  //     if (e.id === newObj.id) {
-  //       console.log(e)
-  //       console.log(newObj)
-  //       localObj = e;
-  //     }
-  //   })
-  // return localObj
-
   return newObj
 }
 
@@ -51,14 +36,7 @@ export function switchTodoItemDone(todoItem, owner) {
 
   let localArr = JSON.parse(localStorage.getItem(owner));
 
-  // let newArr = localArr.map(el => {
-  //   console.log(el)
-  //   console.log(el.id === todoItem.id)
-  //   if (el.id === todoItem.id) {
-  //     el.done = todoItem.done;
-  //   }
-  // })
-  // console.log(newArr)
+
   console.log(localArr)
   for (const obj of localArr) {
     if (obj.id === todoItem.id) {

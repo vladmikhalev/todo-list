@@ -106,7 +106,7 @@ async function createTodoApp(container, {
   owner,
   todoItemList = [],
   onCreateFormSubmit,
-  onDoneClick, 
+  onDoneClick,
   onDeleteClick,
 
 }) {
@@ -115,7 +115,7 @@ async function createTodoApp(container, {
   let todoList = createTodoList();
   const handlers = { onDone: onDoneClick, onDelete: onDeleteClick };
 console.log(owner)
-  
+
 
   container.append(todoAppTitle);
   container.append(todoItemForm.form);
@@ -126,7 +126,6 @@ console.log(owner)
       const todoItemElement = createTodoItemElement(todoItem, handlers, owner);
       todoList.append(todoItemElement);
     });
-  // }
 
 
   todoItemForm.form.addEventListener('submit', async function (event) {
@@ -135,15 +134,15 @@ console.log(owner)
     if (!todoItemForm.input.value) {
       return;
     }
-    
 
-    
+
+
     const todoItem = await onCreateFormSubmit({
       owner,
       nameItem: todoItemForm.input.value.trim(),
     });
     console.log(todoItem)
-    
+
     let todoItemElement = createTodoItemElement(todoItem, handlers, owner);
 
 

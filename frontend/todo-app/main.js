@@ -8,14 +8,12 @@ async function setOwner(owner, title) {
   if (localStorage.getItem('paramBtn') == null) {
     localStorage.setItem('paramBtn', 'false')
   }
-  
-  
+
+
   changeStorage(switchBtnText)
-  
-  // const ownerName = 'Я';
-  
-  
-  
+
+
+
   if (localStorage.getItem('paramBtn') !== 'true') {
     const todoItemList = local.getTodoList(owner);
     createTodoApp(document.getElementById('todo-app'), {
@@ -25,7 +23,7 @@ async function setOwner(owner, title) {
       onCreateFormSubmit: local.createTodoItem,
       onDoneClick: local.switchTodoItemDone,
       onDeleteClick: local.deleteTodoItem,
-  
+
     });
   } else {
     const todoItemList = await server.getTodoList(owner);
@@ -37,13 +35,13 @@ async function setOwner(owner, title) {
       onCreateFormSubmit: server.createTodoItem,
       onDoneClick: server.switchTodoItemDone,
       onDeleteClick: server.deleteTodoItem,
-  
+
     });
   }
-  
-  
+
+
   async function switchBtnText(btn) {
-  
+
     if (localStorage.getItem('paramBtn') === 'true') {
       console.log(btn)
       btn.textContent = 'Перейти на серверное хранилище';
@@ -64,59 +62,3 @@ export { setOwner };
 
 
 
-
-
-
-// if (localStorage.getItem('paramBtn') == null) {
-//   localStorage.setItem('paramBtn', 'false')
-// }
-
-
-// changeStorage(switchBtnText)
-
-// const ownerName = 'Я';
-
-
-
-// if (localStorage.getItem('paramBtn') !== 'true') {
-//   const todoItemList = local.getTodoList(ownerName);
-//   createTodoApp(document.getElementById('todo-app'), {
-//     title: 'Мои дела',
-//     ownerName,
-//     todoItemList,
-//     onCreateFormSubmit: local.createTodoItem,
-//     onDoneClick: local.switchTodoItemDone,
-//     onDeleteClick: local.deleteTodoItem,
-
-//   });
-// } else {
-//   const todoItemList = await server.getTodoList(ownerName);
-//   console.log(todoItemList)
-//   createTodoApp(document.getElementById('todo-app'), {
-//     title: 'Мои дела',
-//     ownerName,
-//     todoItemList,
-//     onCreateFormSubmit: server.createTodoItem,
-//     onDoneClick: server.switchTodoItemDone,
-//     onDeleteClick: server.deleteTodoItem,
-
-//   });
-// }
-
-
-// async function switchBtnText(btn) {
-
-//   if (localStorage.getItem('paramBtn') === 'true') {
-//     console.log(btn)
-//     btn.textContent = 'Перейти на серверное хранилище';
-//     localStorage.setItem('paramBtn', false)
-//     console.log(localStorage)
-//     window.location.reload();
-//   } else {
-//     console.log(btn)
-//     btn.textContent = 'Перейти на локальное хранилище';
-//     localStorage.setItem('paramBtn', true)
-//     console.log(localStorage)
-//     window.location.reload();
-//   }
-// }
